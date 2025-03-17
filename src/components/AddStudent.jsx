@@ -18,33 +18,9 @@ export default function AddStudent({ handleAddStudent }) {
   //   const [graduationYear, setGraduationYear] = useState(2023);
   //   const [graduated, setGraduated] = useState(false);
 
-  const handleName = (e) => {
-    // setFullName(e.target.value);
-    setFormData({ ...formData, fullName: e.target.value });
-  };
-  const handleImage = (e) => {
-    // setImage(e.target.value);
-    setFormData({ ...formData, image: e.target.value });
-  };
-  const handlePhone = (e) => {
-    // setPhone(e.target.value);
-    setFormData({ ...formData, phone: e.target.value });
-  };
-  const handleEmail = (e) => {
-    // setEmail(e.target.value);
-    setFormData({ ...formData, email: e.target.value });
-  };
-  const handleProgram = (e) => {
-    // setProgram(e.target.value);
-    setFormData({ ...formData, program: e.target.value });
-  };
-  const handleGraduationYear = (e) => {
-    // setGraduationYear(e.target.value);
-    setFormData({ ...formData, graduationYear: e.target.value });
-  };
-  const handleGraduated = (e) => {
-    // setGraduated(e.target.checked);
-    setFormData({ ...formData, graduated: e.target.checked });
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
   const onSubmit = (e) => {
@@ -84,7 +60,7 @@ export default function AddStudent({ handleAddStudent }) {
           <input
             name="fullName"
             value={formData.fullName}
-            onChange={handleName}
+            onChange={handleChange}
             type="text"
             placeholder="Full Name"
           />
@@ -95,7 +71,7 @@ export default function AddStudent({ handleAddStudent }) {
           <input
             name="image"
             value={formData.image}
-            onChange={handleImage}
+            onChange={handleChange}
             type="url"
             placeholder="Profile Image"
           />
@@ -106,7 +82,7 @@ export default function AddStudent({ handleAddStudent }) {
           <input
             name="phone"
             value={formData.phone}
-            onChange={handlePhone}
+            onChange={handleChange}
             type="tel"
             placeholder="Phone"
           />
@@ -117,7 +93,7 @@ export default function AddStudent({ handleAddStudent }) {
           <input
             name="email"
             value={formData.email}
-            onChange={handleEmail}
+            onChange={handleChange}
             type="email"
             placeholder="Email"
           />
@@ -130,7 +106,7 @@ export default function AddStudent({ handleAddStudent }) {
           <select
             name="program"
             value={formData.program}
-            onChange={handleProgram}
+            onChange={handleChange}
           >
             <option value="">-- None --</option>
             <option value="Web Dev">Web Dev</option>
@@ -144,7 +120,7 @@ export default function AddStudent({ handleAddStudent }) {
           <input
             name="graduationYear"
             value={formData.graduationYear}
-            onChange={handleGraduationYear}
+            onChange={handleChange}
             type="number"
             placeholder="Graduation Year"
             minLength={4}
@@ -159,7 +135,7 @@ export default function AddStudent({ handleAddStudent }) {
           <input
             name="graduated"
             checked={formData.graduated}
-            onChange={handleGraduated}
+            onChange={handleChange}
             type="checkbox"
           />
         </label>
